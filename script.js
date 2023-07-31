@@ -1,3 +1,4 @@
+const weatherInfo = document.querySelector("#weather-info");
 const searchBar = document.querySelector("#search-bar");
 const searchBtn = document.querySelector("#search-btn");
 
@@ -32,7 +33,36 @@ function getApiUrl(search) {
 }
 
 function renderPage(weather) {
+    const page = getWeatherPage(weather);    
+
+    weatherInfo.innerHTML = page;
+}
+
+function getWeatherPage(weather) {
     console.log(weather);
+
+    const { temp_c, temp_f, humidity, 
+            wind_kph, wind_mph, cloud, last_updated } = weather.current;
+
+    const { icon, text } = weather.current.condition;
+
+    return `
+    <div>
+        <div>
+            <img src="http:${icon}"/>
+            <h3>${temp_c}</h3>
+            <div>
+                <p>${wind_kph}</p>
+                <p>${humidity}</p>
+                <p>${cloud}</p>
+            </div>
+        </div>
+        <div>
+            <p>${last_updated}</p>
+            <p>${text}</p>
+        </div>
+    </div>
+    `;
 }
 
 function searchWeather() {
