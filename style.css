@@ -1,3 +1,26 @@
 body {
     background-color: yellow;
 }
+
+.loader {
+    animation: rotating 1s infinite;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: solid 8px gray;
+    border-top-color: blue; 
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+
+    50% {
+        transform: rotate(181deg) scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

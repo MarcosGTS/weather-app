@@ -7,11 +7,14 @@ const API = "http://api.weatherapi.com/v1/forecast.json"
 
 async function getWeatherData(search) {
     try {
+        // set Loading 
+        renderPage(getLoadingPage());
+
         const apiUrl = getApiUrl(search);
         const response = await fetch(apiUrl, { mode: "cors" });
         const weatherData = await response.json();
         
-        renderPage(weatherData);
+        renderPage(getWeatherPage(weatherData));
     } catch(e) {
         console.log(e);
     }
@@ -32,10 +35,13 @@ function getApiUrl(search) {
    return finalUrl;
 }
 
-function renderPage(weather) {
-    const page = getWeatherPage(weather);    
 
+function renderPage(page) {
     weatherInfo.innerHTML = page;
+}
+
+function getLoadingPage() {
+    return `<div class="loader"></div>`;
 }
 
 function getWeatherPage(weather) {
@@ -45,6 +51,7 @@ function getWeatherPage(weather) {
             wind_kph, wind_mph, cloud, last_updated } = weather.current;
 
     const { icon, text } = weather.current.condition;
+    const { name, country } = weather.location; 
 
     return `
     <div>
@@ -58,6 +65,7 @@ function getWeatherPage(weather) {
             </div>
         </div>
         <div>
+            <p>${name}, ${country}</p>
             <p>${last_updated}</p>
             <p>${text}</p>
         </div>
