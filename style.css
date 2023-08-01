@@ -1,5 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
+    margin: 0;
+    min-height: 100vh;
     background-color: yellow;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+header {
+    flex-wrap: wrap;
+    background-color: gray;
+    padding: 0.4rem .8rem;
+}
+
+.flex-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+
+    flex-wrap: wrap;
 }
 
 .loader {
@@ -9,6 +37,32 @@ body {
     border-radius: 60px;
     border: solid 8px gray;
     border-top-color: blue; 
+}
+
+.weather-info {
+    padding: 1rem;
+    background-color: blue;
+}
+
+.weather-info .main-content {
+    display: flex;
+}
+
+.temperature-container {
+    display: flex;
+    align-items: center;
+
+    margin-right: 10%;
+}
+
+.temperature-container img {
+    height: 4rem;
+    width: auto;
+}
+
+.temperature-container .temp-text {
+    margin: 0;
+    font-size: 4rem;
 }
 
 @keyframes rotating {

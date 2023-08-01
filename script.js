@@ -1,4 +1,4 @@
-const weatherInfo = document.querySelector("#weather-info");
+const weatherInfo = document.querySelector("#renderer");
 const searchBar = document.querySelector("#search-bar");
 const searchBtn = document.querySelector("#search-btn");
 
@@ -35,7 +35,6 @@ function getApiUrl(search) {
    return finalUrl;
 }
 
-
 function renderPage(page) {
     weatherInfo.innerHTML = page;
 }
@@ -54,14 +53,16 @@ function getWeatherPage(weather) {
     const { name, country } = weather.location; 
 
     return `
-    <div>
-        <div>
-            <img src="http:${icon}"/>
-            <h3>${temp_c}</h3>
+    <div class="weather-info flex-display">
+        <div class="main-content">
+            <div class="temperature-container">
+                <span><img src="http:${icon}"/></span>
+                <h3 class="temp-text">${temp_c}</h3>
+            </div>
             <div>
-                <p>${wind_kph}</p>
-                <p>${humidity}</p>
-                <p>${cloud}</p>
+                <p>Wind: ${wind_kph}</p>
+                <p>Humidity: ${humidity}</p>
+                <p>Cloud: ${cloud}</p>
             </div>
         </div>
         <div>
@@ -84,3 +85,4 @@ function setupEvents() {
 }
 
 setupEvents();
+getWeatherData("Sao Luis");
