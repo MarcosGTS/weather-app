@@ -3,31 +3,99 @@
 * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    --tab-color: darkslategray;
+    --clock-color: cornflowerblue;
+}
+
+
+body, h1, h2, h3, p {
+    margin: 0px;
 }
 
 body {
-    margin: 0;
     min-height: 100vh;
-    background-color: yellow;
+    background-image: linear-gradient(to top, black, var(--clock-color));
 }
 
+#renderer {
+    margin-top: 10%;
+}
+#renderer > * {
+    margin-left: auto;
+    margin-right: auto;
+}
 .wrapper {
-    margin: 0 auto;
     max-width: 800px;
+    margin: 0 auto;
 }
 
-header {
-    flex-wrap: wrap;
-    background-color: gray;
-    padding: 0.4rem .8rem;
+.weather-info {
+    max-width: 600px;
+    margin: 0 auto;
+
+    padding-bottom: 2rem;
+    background-color: rgba(0,0,0, 0.2);
 }
 
-.flex-display {
+.localization {
     display: flex;
     justify-content: space-between;
-    align-items: center;    
 
-    flex-wrap: wrap;
+    background-color: var(--tab-color);
+    color: white;
+    font-weight: bold;
+
+    padding: .8rem 1.6rem;
+}
+
+.temperature-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    
+}
+
+.temperature-container {
+    display: flex;
+    align-items: center;
+}
+
+.temperature-container .temp {
+    font-size: 2.5rem;
+}
+
+.more-info {
+    width: 50%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.info { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.temperature-main,
+.more-info {
+    margin-top: 1.5rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .responsive {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .localization {
+        border-radius: 6px 6px 0 0;
+    }
+
+    .weather-info {
+        border-radius: 6px;
+    }
 }
 
 .loader {
@@ -39,36 +107,11 @@ header {
     border-top-color: blue; 
 }
 
-.weather-info {
-    padding: 1rem;
-    background-color: blue;
-}
-
-.weather-info .main-content {
-    display: flex;
-}
-
-.temperature-container {
-    display: flex;
-    align-items: center;
-
-    margin-right: 10%;
-}
-
-.temperature-container img {
-    height: 4rem;
-    width: auto;
-}
-
-.temperature-container .temp-text {
-    margin: 0;
-    font-size: 4rem;
-}
-
 @keyframes rotating {
     0% {
         transform: rotate(0) scale(1);
-    }
+  
+    } 
 
     50% {
         transform: rotate(181deg) scale(0.9);

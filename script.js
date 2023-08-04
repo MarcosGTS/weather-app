@@ -53,22 +53,33 @@ function getWeatherPage(weather) {
     const { name, country } = weather.location; 
 
     return `
-    <div class="weather-info flex-display">
-        <div class="main-content">
-            <div class="temperature-container">
-                <span><img src="http:${icon}"/></span>
-                <h3 class="temp-text">${temp_c}</h3>
-            </div>
-            <div>
-                <p>Wind: ${wind_kph}</p>
-                <p>Humidity: ${humidity}</p>
-                <p>Cloud: ${cloud}</p>
-            </div>
-        </div>
-        <div>
+    <div class="weather-info blue">
+        <div class="localization">
             <p>${name}, ${country}</p>
             <p>${last_updated}</p>
-            <p>${text}</p>
+        </div>
+        <div class="responsive">
+            <div class="temperature-main">
+                <div class="temperature-container">
+                    <span><img src="http:${icon}"/></span>
+                    <h3 class="temp">${temp_c}&deg;c</h3>
+                </div>
+                <p>${text}</p>
+            </div>
+            <div class="more-info">
+                <span class="info">
+                    <h3>Wind</h3>
+                    <p>${wind_kph}</p>
+                </span>
+                <span class="info">
+                    <h3>Humidity</h3>
+                    <p>${humidity}</p>
+                </span>
+                <span class="info">
+                    <h3>Cloud</h3>
+                    <p>${cloud}</p>
+                </span>
+            </div>
         </div>
     </div>
     `;
