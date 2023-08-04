@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Roboto&display=swap');
 
 * {
     box-sizing: border-box;
@@ -15,17 +15,59 @@ body, h1, h2, h3, p {
 body {
     min-height: 100vh;
     background-image: linear-gradient(to top, black, var(--clock-color));
+    color: white;
 }
 
-#renderer {
-    margin-top: 10%;
+header {
+    padding: 0.8rem 1rem;
+    background-color: var(--tab-color);
 }
+    
+header img {
+    height: 48px;
+    width: auto;
+
+    margin-top: -.5rem;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container p {
+    font-size: 2rem;
+    font-family: 'Josefin Sans', sans-serif;
+ }
+
+.search-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container button,
+.search-container input {
+    height: 2rem;
+    border: none;
+    color: var(--tab-color);
+    font-family: 'Josefin Sans', sans-serif;
+    
+    padding: 0.4rem
+}
+
+
+#renderer {
+    margin-top: calc(50vh - 200px);
+}
+
 #renderer > * {
     margin-left: auto;
     margin-right: auto;
 }
+
 .wrapper {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -42,7 +84,6 @@ body {
     justify-content: space-between;
 
     background-color: var(--tab-color);
-    color: white;
     font-weight: bold;
 
     padding: .8rem 1.6rem;
@@ -83,6 +124,23 @@ body {
 }
 
 @media only screen and (min-width: 600px) {
+
+    header > *,
+    .search-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .search-container {
+        margin-top: 0;
+    }
+
+    .logo-container {
+        padding: 0;
+    }
+    
     .responsive {
         display: flex;
         justify-content: space-between;
@@ -91,6 +149,15 @@ body {
 
     .localization {
         border-radius: 6px 6px 0 0;
+    }
+
+    .search-container input {
+        border-radius: 4px 0 0 4px
+    }
+
+    .search-container button {
+        border-radius: 0 4px 4px 0;
+        font-weight: bold;
     }
 
     .weather-info {
@@ -103,8 +170,8 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 60px;
-    border: solid 8px gray;
-    border-top-color: blue; 
+    border: solid 8px white;
+    border-top-color: var(--tab-color); 
 }
 
 @keyframes rotating {
