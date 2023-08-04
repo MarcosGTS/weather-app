@@ -3,7 +3,7 @@ const searchBar = document.querySelector("#search-bar");
 const searchBtn = document.querySelector("#search-btn");
 
 const KEY = "d4d30e11a2f14dad9f4211444233007"
-const API = "http://api.weatherapi.com/v1/forecast.json"
+const API = "https://api.weatherapi.com/v1/forecast.json"
 
 async function getWeatherData(search) {
     try {
